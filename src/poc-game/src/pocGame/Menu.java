@@ -6,30 +6,28 @@ import org.newdawn.slick.state.*;
 import org.newdawn.slick.Input;
 
 public class Menu extends BasicGameState{
+		Image title;
+		Image playNow;
+		Image exitGame;
 		
 		public Menu(int state) {
 		
 		}
 		@Override
 		public void init(GameContainer gc, StateBasedGame sbg) throws SlickException{
-
+			title = new Image("res/panic.png");
+			playNow = new Image("res/play-btn.png");
+			exitGame = new Image("res/exit-btn.png");
 		}
 		@Override
 		public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException{
-			g.fillOval(75, 100, 100, 100);
-			g.drawString("Click to Play Now!", 80, 70);
-
+			title.draw(200, 30, .8f);
+			playNow.draw(255, 170, 0.3f);
+			exitGame.draw(270,230,0.06f);
 		}
 		@Override
 		public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
-			Input input = gc.getInput();
-			int xpos = Mouse.getX();
-			int ypos = Mouse.getY();
-			if((xpos>75&&xpos<175)&&(ypos>160&&ypos<260)) { 
-				if(input.isMouseButtonDown(0)) {
-					sbg.enterState(1);
-				}
-			}
+
 		}
 		@Override
 		public int getID() {
