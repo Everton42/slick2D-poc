@@ -2,9 +2,10 @@ package pocGame;
 
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
+import org.newdawn.slick.Input;
 
 public class Menu extends BasicGameState{
-	
+
 		public Menu(int state) {
 		
 		}
@@ -22,7 +23,11 @@ public class Menu extends BasicGameState{
 		}
 		@Override
 		public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
-			
+
+			Input input = gc.getInput(); 
+			int mouseX = input.getMouseX(); 
+			int mouseY = input.getMouseY(); 
+			System.out.println(mouseX + ", " + mouseY);
 			
 		}
 		@Override
