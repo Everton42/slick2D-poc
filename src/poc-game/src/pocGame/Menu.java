@@ -6,28 +6,30 @@ import org.newdawn.slick.Input;
 
 public class Menu extends BasicGameState{
 
+		Image marvin;
+		int marvinX = 100;
+		int marvinY = 100;
+		
 		public Menu(int state) {
 		
 		}
 		@Override
 		public void init(GameContainer gc, StateBasedGame sbg) throws SlickException{
-			
+			marvin = new Image("res/marvin.png");
 		}
 		@Override
 		public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException{
 			g.drawString("Don't Panic!", 50, 50);
-			//g.drawRect(50, 100, 60, 120);
-			//g.drawOval(200, 130, 130, 80);
-			Image marvin = new Image("res/marvin.png");
-			g.drawImage(marvin, 100, 100);
+			g.drawImage(marvin, marvinX, marvinY);
 		}
 		@Override
 		public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
-
-			Input input = gc.getInput(); 
-			int mouseX = input.getMouseX(); 
-			int mouseY = input.getMouseY(); 
-			System.out.println(mouseX + ", " + mouseY);
+			// get all informations from mouse and keyboard
+			Input input = gc.getInput();
+			if(input.isKeyDown(Input.KEY_UP)) {marvinY -= 1;}
+			if(input.isKeyDown(Input.KEY_DOWN)) {marvinY += 1;}
+			if(input.isKeyDown(Input.KEY_LEFT)) {marvinX -= 1;}
+			if(input.isKeyDown(Input.KEY_RIGHT)) {marvinX += 1;}
 			
 		}
 		@Override
