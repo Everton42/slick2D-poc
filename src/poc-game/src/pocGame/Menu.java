@@ -27,7 +27,22 @@ public class Menu extends BasicGameState{
 		}
 		@Override
 		public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
-
+			int posX = Mouse.getX();
+			int posY = Mouse.getY();
+			System.out.println(posX);
+			System.out.println(posY);
+			
+			if((posX>250&& posX<344) && (posY>143 && posY<180 )) {
+				if(Mouse.isButtonDown(0)) {
+					sbg.enterState(1);
+				}
+			}
+			
+			if((posX>270&& posX<325) && (posY>105 && posY<130 )) {
+				if(Mouse.isButtonDown(0)) {
+					System.exit(0);
+				}
+			}
 		}
 		@Override
 		public int getID() {
