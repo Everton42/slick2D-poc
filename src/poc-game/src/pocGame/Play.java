@@ -10,8 +10,8 @@ public class Play extends BasicGameState{
 		boolean quit = false;
 		float whalePositionX = 0;
 		float whalePositionY = 0;
-		float shiftX = whalePositionX;
-		float shiftY = whalePositionY + 180;
+		float shiftX = whalePositionX + 15;
+		float shiftY = whalePositionY + 150;
 		
 		public Play(int state) {
 			
@@ -25,7 +25,7 @@ public class Play extends BasicGameState{
 		public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException{
 			worldMap.draw(whalePositionX,whalePositionY, 1.5f);
 			whale.draw(shiftX,shiftY, .2f);
-			g.drawString("X: " + whalePositionX + " Y: " + whalePositionY, 400, 50);
+		//	g.drawString("X: " + whalePositionX + " Y: " + whalePositionY, 400, 50);
 		
 			if(quit == true) {
 				g.drawString("Resume (R)", 250, 100);
@@ -62,6 +62,23 @@ public class Play extends BasicGameState{
 				whalePositionX -= delta * .1f;
 				if(whalePositionX < -262) {
 					whalePositionX += delta * .1f;
+				}
+			}
+			
+			if(input.isKeyDown(Input.KEY_ESCAPE)) {
+				quit = true;
+			}
+			
+			if(quit == true) {
+				if(input.isKeyDown(Input.KEY_R)) {
+					quit = false;
+				}
+				if(input.isKeyDown(Input.KEY_M)) {
+					sbg.enterState(0);
+					quit = false;
+				}
+				if(input.isKeyDown(Input.KEY_Q)) {
+					System.exit(0);
 				}
 			}
 			

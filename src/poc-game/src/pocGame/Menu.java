@@ -3,7 +3,6 @@ package pocGame;
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
-import org.newdawn.slick.Input;
 
 public class Menu extends BasicGameState{
 		Image title;
